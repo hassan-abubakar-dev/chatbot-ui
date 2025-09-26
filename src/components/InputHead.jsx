@@ -1,0 +1,52 @@
+import { useState } from "react";
+import { Chatbot } from "supersimpledev";
+
+
+export function InputHeader({messages, setMessages}){
+
+
+	const [inputValue, getInputValue] = useState('')
+
+	function getInputValueType(e){
+		getInputValue(e.target.value);
+		
+	}
+
+	function send(){
+		const newMessages = [
+			...messages,
+			{
+				message: inputValue,
+				sender: 'user',
+				id: crypto.randomUUID()
+			}
+		]
+		setMessages(newMessages)
+
+	const response =Chatbot.getResponse(inputValue)
+
+	setMessages([
+		...newMessages,
+		{
+			message: response,
+				sender: 'robot',
+				id: crypto.randomUUID()
+		}
+	])
+
+	getInputValue('')
+	}
+
+	function add(e){
+		if(e.key === 'Enter'){
+			send();
+		}		
+	}
+
+	return (
+		<div>
+			<input type="text" className="input" onChange={getInputValueType} value={inputValue} onKeyDown={add} placeholder="Send message to brainstorm AI"/>
+			<button onClick={send} className="send-button">Send</button>
+		</div>
+	);
+}

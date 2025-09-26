@@ -1,0 +1,51 @@
+.app{
+ max-width: 600px;
+ margin-left: auto;
+ margin-right: auto;
+ display: flex;
+ flex-direction: column;
+ overflow: scroll;
+ scrollbar-width: none;
+}
+.profile-pic{
+  width: 45px;
+}
+.text-paragraph{
+  display: inline-block;
+ max-width: 300px;
+ background-color: rgb(238, 238, 238);
+ vertical-align: text-top;
+ margin: 10px;
+ padding: 10px 20px;
+}
+.input{
+  width: 80%;
+  height: 35px;
+  padding-left: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+}
+.send-button{
+  background-color: rgb(25, 135, 84);
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 12px;
+}
+.user-contents{
+  display: flex;
+  justify-self: end;
+  align-items: start;
+}
+.robot-contents{
+  display: flex;
+  align-items: start;
+}
+.welocme-message{
+  text-align: center;
+  font-size: 20px;
+  color: rgb(25, 135, 84);
+
+}
