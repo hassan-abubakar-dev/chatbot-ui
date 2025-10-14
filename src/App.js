@@ -19,34 +19,35 @@ function App(){
    useEffect(() => {
    
     const element = chatMessageElement.current;
-   element.scrollTop = element.scrollHeight;
    
-   console.log(element);
-   
+    if(element){
+     element.scrollTop = element.scrollHeight;
+    }
     
   }, [messages])
 
   
   return (
     <div className='app'>
-
+      <div className='chat-message-body'  ref={chatMessageElement}>
       {messages.length === 0 
-      ? <p className='welocme-message'>wellcome to Bainstorm AI, ask our AI below</p> 
+      ? <p className='welocme-message'>What's on your mind today?</p> 
       : ''}
 
-     <div className='chat-messages-to-scroll' ref={chatMessageElement}>
+     <div className='chat-messages-to-scroll'>
        {messages.map((message) => {
         return (
           <Messages
             message={message.message}
+            time={message.time}
             sender={message.sender}
             key={message.id}
-            messages={messages}
+          
          />
         );
       })}
      </div>
-
+      </div>
     
       <InputHeader
         messages={messages}

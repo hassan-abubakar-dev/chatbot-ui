@@ -1,4 +1,5 @@
 import { useState } from "react";
+import dayjs from "dayjs";
 import { Chatbot } from "supersimpledev";
 
 
@@ -13,10 +14,12 @@ export function InputHeader({messages, setMessages}){
 	}
 
 	function send(){
-		const newMessages = [
+		if(inputValue.trim()){
+			const newMessages = [
 			...messages,
 			{
 				message: inputValue,
+				time: dayjs().format('MMM D, HH:mm '),
 				sender: 'user',
 				id: crypto.randomUUID()
 			}
@@ -30,11 +33,13 @@ export function InputHeader({messages, setMessages}){
 		{
 			message: response,
 				sender: 'robot',
+				time: dayjs().format('MMM D, HH:mm: ss'),
 				id: crypto.randomUUID()
 		}
 	])
 
 	getInputValue('')
+		}
 	}
 
 	function add(e){
