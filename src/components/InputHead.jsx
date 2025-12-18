@@ -49,7 +49,7 @@ export function InputHeader({messages, setMessages}){
 	}
 
 	return (
-		<div>
+		<div className="">
 			<input type="text" className="input" onChange={getInputValueType} value={inputValue} onKeyDown={add} placeholder="Send message to brainstorm AI"/>
 			<button onClick={send} className="send-button">Send</button>
 		</div>

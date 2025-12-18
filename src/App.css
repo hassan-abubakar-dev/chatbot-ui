@@ -23,6 +23,7 @@ p{
 }
 .profile-pic{
   width: 45px;
+  margin-top: 7px;
 }
 
 .text-paragraph{
@@ -32,6 +33,8 @@ p{
  vertical-align: text-top;
  margin: 10px;
  padding: 10px 20px;
+ border-radius: 10px;
+ 
 }
 .time{
   font-size: 12px;
@@ -68,4 +71,20 @@ p{
   font-size: 20px;
   color: rgb(25, 135, 84);
   margin-top: 50px;
+}
+
+@media (max-width: 480px) {
+  .text-paragraph {
+    max-width: 85%;
+    font-size: 14px;
+  }
+
+  .profile-pic {
+    width: 32px;
+    height: 32px;
+  }
+
+  .input{
+   width: 60%
+}
 }
